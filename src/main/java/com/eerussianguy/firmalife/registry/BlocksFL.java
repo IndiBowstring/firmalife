@@ -1,6 +1,8 @@
 package com.eerussianguy.firmalife.registry;
 
 import com.google.common.collect.ImmutableList;
+
+import com.eerussianguy.firmalife.te.*;
 import net.dries007.tfc.api.types.IFruitTree;
 import net.dries007.tfc.util.agriculture.FruitTree;
 import net.minecraft.block.Block;
@@ -21,10 +23,6 @@ import com.eerussianguy.firmalife.init.PlantsFL;
 import com.eerussianguy.firmalife.init.StemCrop;
 import com.eerussianguy.firmalife.items.ItemBlockRot;
 import com.eerussianguy.firmalife.items.ItemFoodFL;
-import com.eerussianguy.firmalife.te.TELeafMat;
-import com.eerussianguy.firmalife.te.TEOven;
-import com.eerussianguy.firmalife.te.TEQuadPlanter;
-import com.eerussianguy.firmalife.te.TEStemCrop;
 import net.dries007.tfc.objects.blocks.BlockFluidTFC;
 import net.dries007.tfc.objects.blocks.agriculture.*;
 import net.dries007.tfc.objects.fluids.properties.FluidWrapper;
@@ -44,6 +42,8 @@ public class BlocksFL
     public static final BlockOvenWall OVEN_WALL = Helpers.getNull();
     @GameRegistry.ObjectHolder("oven_chimney")
     public static final BlockOvenChimney OVEN_CHIMNEY = Helpers.getNull();
+    @GameRegistry.ObjectHolder("compost_bin")
+    public static final BlockCompostBin COMPOST_BIN = Helpers.getNull();
     @GameRegistry.ObjectHolder("pumpkin_fruit")
     public static final BlockStemFruit PUMPKIN_FRUIT = Helpers.getNull();
     @GameRegistry.ObjectHolder("melon_fruit")
@@ -183,6 +183,7 @@ public class BlocksFL
         normalIBs.add(register(r, "oven", new BlockOven(), CT_DECORATIONS));
         normalIBs.add(register(r, "oven_wall", new BlockOvenWall(), CT_DECORATIONS));
         normalIBs.add(register(r, "oven_chimney", new BlockOvenChimney(), CT_DECORATIONS));
+        normalIBs.add(register(r, "compost_bin", new BlockCompostBin(), CT_DECORATIONS));
         normalIBs.add(register(r, "leaf_mat", new BlockLeafMat(), CT_DECORATIONS));
         normalIBs.add(register(r, "cinnamon_log", new BlockCinnamonLog(), CT_WOOD));
         normalIBs.add(register(r, "cinnamon_leaves", new BlockCinnamonLeaves(), CT_WOOD));
@@ -257,6 +258,7 @@ public class BlocksFL
         allCropBlocks = cropBlocks.build();
 
         register(TEOven.class, "oven");
+        register(TECompostBin.class, "compost_bin");
         register(TEQuadPlanter.class, "quad_planter");
         register(TELeafMat.class, "leaf_mat");
         register(TEStemCrop.class, "stem_crop");

@@ -2,6 +2,7 @@ package com.eerussianguy.firmalife;
 
 import com.eerussianguy.firmalife.blocks.*;
 import com.eerussianguy.firmalife.items.ItemFruitDoor;
+import com.eerussianguy.firmalife.te.TECompostBin;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.minecraft.block.*;
 import com.eerussianguy.firmalife.blocks.BlockStemCrop;

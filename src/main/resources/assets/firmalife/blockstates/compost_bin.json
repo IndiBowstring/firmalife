@@ -1,0 +1,58 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "texture": "firmalife:blocks/orange_stripped"
+    }
+  },
+  "variants": {
+    "normal": [
+      {
+        "model": ""
+      }
+    ],
+    "inventory": {
+      "model": "fence_inventory"
+    },
+    "north": {
+      "true": {
+        "submodel": "firmalife:compost_bin_side",
+        "y": 90
+      },
+      "false": {
+        "submodel": "firmalife:compost_bin",
+        "y": 0
+      }
+    },
+    "east": {
+      "true": {
+        "submodel": "firmalife:compost_bin_side",
+        "y": 180
+      },
+      "false": {
+        "submodel": "firmalife:compost_bin",
+        "y": 90
+      }
+    },
+    "south": {
+      "true": {
+        "submodel": "firmalife:compost_bin_side",
+        "y": 270
+      },
+      "false": {
+        "submodel": "firmalife:compost_bin",
+        "y": 180
+      }
+    },
+    "west": {
+      "true": {
+        "submodel": "firmalife:compost_bin_side",
+        "y": 0
+      },
+      "false": {
+        "submodel": "firmalife:compost_bin",
+        "y": 270
+      }
+    }
+  }
+}
