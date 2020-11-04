@@ -84,10 +84,7 @@ public class BlocksFL
         return allNormalIBs;
     }
 
-    public static ImmutableList<Block> getAllFoodIBs()
-    {
-        return allFoodIBs;
-    }
+    public static ImmutableList<Block> getAllFoodIBs() { return allFoodIBs; }
 
     public static ImmutableList<BlockFruitTreeLeaves> getAllFruitLeaves()
     {

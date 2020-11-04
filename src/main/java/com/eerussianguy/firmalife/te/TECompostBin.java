@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import javax.annotation.Nonnull;
+
 import org.lwjgl.Sys;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.inventory.IInventory;
@@ -17,6 +19,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import com.eerussianguy.firmalife.registry.BlocksFL;
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
 import net.dries007.tfc.objects.te.TEBase;
 import net.dries007.tfc.objects.te.TEInventory;
 
@@ -33,6 +37,10 @@ public class TECompostBin extends TEBase implements ITickable
     private long startTick;
 
     public boolean isMaster() { return isMaster; }
+
+    public float getFillAmountOrganic() { return fillAmountOrganic; }
+
+    public float getFillAmountCompost() { return fillAmountCompost; }
 
     @Override
     public void update()
@@ -57,6 +65,13 @@ public class TECompostBin extends TEBase implements ITickable
         {
             this.capacity = (count * 2000); //todo: Config for this value
         }
+    }
+
+    public float getFillForRender()
+    {
+        if(capacity != 0)
+            return Math.max((fillAmountCompost + fillAmountOrganic / capacity), 0.0625f);
+        return 0.0625f;
     }
 
     @Override
@@ -121,7 +136,7 @@ public class TECompostBin extends TEBase implements ITickable
                         traversal.add((TECompostBin) next);
                 }
             }
-            //System.out.println("Master set to " + master.getPos().toString() + " for " + valid.size() + " blocks");
+            System.out.println("Master set to " + master.getPos().toString() + " for " + valid.size() + " blocks");
             for (TECompostBin current : valid)
                 current.setMaster(master, valid.size());
         }

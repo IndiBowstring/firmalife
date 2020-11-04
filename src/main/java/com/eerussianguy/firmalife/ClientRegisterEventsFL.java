@@ -2,6 +2,7 @@ package com.eerussianguy.firmalife;
 
 import com.eerussianguy.firmalife.blocks.*;
 import com.eerussianguy.firmalife.items.ItemFruitDoor;
+import com.eerussianguy.firmalife.render.*;
 import com.eerussianguy.firmalife.te.TECompostBin;
 import net.dries007.tfc.objects.blocks.agriculture.BlockCropDead;
 import net.minecraft.block.*;
@@ -33,10 +34,6 @@ import com.eerussianguy.firmalife.blocks.BlockPlanter;
 import com.eerussianguy.firmalife.init.StatePropertiesFL;
 import com.eerussianguy.firmalife.registry.BlocksFL;
 import com.eerussianguy.firmalife.registry.ItemsFL;
-import com.eerussianguy.firmalife.render.TESRLeafMat;
-import com.eerussianguy.firmalife.render.TESROven;
-import com.eerussianguy.firmalife.render.TESRQuadPlanter;
-import com.eerussianguy.firmalife.render.VanillaStemStateMapper;
 import com.eerussianguy.firmalife.te.TELeafMat;
 import com.eerussianguy.firmalife.te.TEOven;
 import com.eerussianguy.firmalife.te.TEQuadPlanter;
@@ -88,6 +85,7 @@ public class ClientRegisterEventsFL
         ModelLoader.setCustomStateMapper(BlocksFL.CINNAMON_SAPLING, new StateMap.Builder().ignore(BlockSaplingTFC.STAGE).build());
 
         ClientRegistry.bindTileEntitySpecialRenderer(TEOven.class, new TESROven());
+        ClientRegistry.bindTileEntitySpecialRenderer(TECompostBin.class, new TESRCompostBin());
         ClientRegistry.bindTileEntitySpecialRenderer(TELeafMat.class, new TESRLeafMat());
         ClientRegistry.bindTileEntitySpecialRenderer(TEQuadPlanter.class, new TESRQuadPlanter());
     }

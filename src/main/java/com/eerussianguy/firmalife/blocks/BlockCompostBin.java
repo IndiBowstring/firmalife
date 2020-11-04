@@ -12,14 +12,19 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.EnumFaceDirection;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import com.eerussianguy.firmalife.items.ItemFruitDoor;
 import com.eerussianguy.firmalife.registry.BlocksFL;
 import com.eerussianguy.firmalife.te.TECompostBin;
 import net.dries007.tfc.api.capability.size.IItemSize;
@@ -56,6 +61,29 @@ public class BlockCompostBin extends Block implements IItemSize
             .withProperty(CONNECTED_SOUTHWEST, false)
             .withProperty(CONNECTED_SOUTHEAST, false));
              **/
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
+        /**
+        if(!world.isRemote)
+        {
+            TECompostBin current = (TECompostBin) world.getTileEntity(pos);
+            if(current.getFillAmountOrganic() == 0)
+            {
+                if(!player.getHeldItem(hand).isEmpty())
+                {
+                    ItemStack inHand = player.getHeldItem(hand);
+                    if(inHand.getItem() instanceof ItemFruitDoor)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        **/
+        return false;
     }
 
     @Override
