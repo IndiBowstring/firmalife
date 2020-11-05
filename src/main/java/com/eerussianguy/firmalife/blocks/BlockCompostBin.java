@@ -66,24 +66,14 @@ public class BlockCompostBin extends Block implements IItemSize
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-        /**
+
         if(!world.isRemote)
         {
             TECompostBin current = (TECompostBin) world.getTileEntity(pos);
-            if(current.getFillAmountOrganic() == 0)
-            {
-                if(!player.getHeldItem(hand).isEmpty())
-                {
-                    ItemStack inHand = player.getHeldItem(hand);
-                    if(inHand.getItem() instanceof ItemFruitDoor)
-                    {
-                        return true;
-                    }
-                }
-            }
+            current.addFillAmountCompost(113.0f);
+            current.addFillAmountOrganic(150.0f);
         }
-        **/
-        return false;
+        return true;
     }
 
     @Override

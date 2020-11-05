@@ -42,6 +42,9 @@ public class TECompostBin extends TEBase implements ITickable
 
     public float getFillAmountCompost() { return fillAmountCompost; }
 
+    public void addFillAmountOrganic(float fill) { fillAmountOrganic += fill; }
+    public void addFillAmountCompost(float fill) { fillAmountCompost += fill; }
+
     @Override
     public void update()
     {
@@ -70,7 +73,7 @@ public class TECompostBin extends TEBase implements ITickable
     public float getFillForRender()
     {
         if(capacity != 0)
-            return Math.max((fillAmountCompost + fillAmountOrganic / capacity), 0.0625f);
+            return Math.min(1f, Math.max((fillAmountCompost + fillAmountOrganic) / capacity, 0.0625f));
         return 0.0625f;
     }
 
